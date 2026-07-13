@@ -1,0 +1,6 @@
+name = "SpeedSearch"
+compatibility_date = "2024-14-07"
+
+[vars]
+REDIS_TOKEN = "..."
+REDIS_URL = "..."
