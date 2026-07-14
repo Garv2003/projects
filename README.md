@@ -34,5 +34,8 @@ Full-stack applications I built — web and mobile. Each project in its own fold
 | Textmeld | Vanilla JS | [`textmeld`](./textmeld) |
 | Vidbite | Vanilla JS | [`vidbite`](./vidbite) |
 
+| E-commerce Dashboard | Next.js | [`ecommerce-dashboard`](./ecommerce-dashboard) |
+| Tier List Maker | Vanilla JS | [`tier-list`](./tier-list) |
+| Budget Tracker | Vanilla JS | [`budget-tracker`](./budget-tracker) |
 ---
 *Consolidated archive of individual project repos, organized by category.*
