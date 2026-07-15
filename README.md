@@ -23,7 +23,6 @@ Full-stack applications I built — web and mobile. Each project in its own fold
 | Pdfwhisper | Vanilla JS | [`pdfwhisper`](./pdfwhisper) |
 | Pensieve A Notes | Vanilla JS | [`pensieve-a-notes`](./pensieve-a-notes) |
 | Placepin | Next.js | [`placepin`](./placepin) |
-| Quiz Platform | React | [`quiz-platform`](./quiz-platform) |
 | Real Time Voting | Vanilla JS | [`real-time-voting`](./real-time-voting) |
 | Silhouette | React Native | [`silhouette`](./silhouette) |
 | Solace | React | [`solace`](./solace) |
