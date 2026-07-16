@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+body {
+  font-family: "Red Hat Text", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.3rem;
+  text-align: center;
+  color: hsl(237, 18%, 59%);
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: calc(100vh - 3rem);
+  background-image: url("bg-stars.svg");
+  background-color: hsl(235, 16%, 14%);
+  background-size: contain;
+  padding: 1.5rem;
+}
+.attribution {
+  display: block;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background-image: url("https://avatars.githubusercontent.com/u/105203357?v=4");
+  background-size: 100%;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 100%;
+  z-index: 99;
+}
+.attribution p {
+  visibility: hidden;
+  position: fixed;
+  bottom: 4.5rem;
+  right: 5rem;
+  width: 12.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem 1rem 0;
+  background-color: hsl(235, 16%, 14%);
+  font-size: 0.6rem;
+  text-align: left;
+  letter-spacing: 0.2rem;
+  z-index: 999;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.5);
+  transform: rotateX(90deg);
+  transition: 0.8s cubic-bezier(0.06, 0.8, 0.1, 1);
+}
+.attribution:hover p {
+  visibility: visible;
+  transform: rotateX(0);
+}
+
+@media screen and (max-width: 800px) {
+  .attribution {
+    height: 3.5rem;
+    width: 3.5rem;
+    bottom: 3.2rem;
+    right: 0.8rem;
+  }
+  .attribution p {
+    visibility: visible;
+    bottom: 0.4rem;
+    right: 2.5rem;
+    width: 18rem;
+    border-radius: 1rem 0 1rem;
+    transform: rotateX(0);
+  }
+}

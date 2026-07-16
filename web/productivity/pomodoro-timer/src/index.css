@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Ga Maamli";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/GaMaamli-Regular.ttf") format("truetype");
+}
+
+html {
+  font-family: "Ga Maamli", sans-serif;
+}

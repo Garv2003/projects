@@ -1,0 +1,70 @@
+h1 {
+  font-size: 1.8rem;
+  color: hsl(0, 0%, 100%);
+  margin-top: 10vh;
+}
+
+a {
+  color: hsl(237, 18%, 59%);
+  fill: hsl(237, 18%, 59%);
+  transition: 3ms;
+}
+a:hover {
+  color: hsl(345, 95%, 68%);
+  fill: hsl(345, 95%, 68%);
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+  margin-bottom: 22vh;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5vh;
+  z-index: 1;
+}
+.social svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0 1rem;
+}
+
+.hills {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 23vh;
+  background-image: url("/public/pattern-hills.svg");
+  background-size: cover;
+  background-position: top center;
+}
+
+@media screen and (max-width: 460px) {
+  h1 {
+    font-size: 1.6rem;
+    margin-top: 12vh;
+  }
+  .countdown {
+    margin-top: 2rem;
+    margin-bottom: 30vh;
+  }
+  .social {
+    margin-bottom: 2rem;
+  }
+  .hills {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 30vh;
+    background-size: ste;
+    background-position-x: 80%;
+  }
+}

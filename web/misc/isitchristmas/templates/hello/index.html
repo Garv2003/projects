@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="{% static 'image/favicon.ico' %}">
+  <link href="{% static 'style.css' %}" rel="stylesheet" />
+  <title>Is it Christmas?</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      background-color: black;
+    }
+
+    h1 {
+      color: white;
+      font-size: 200px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Lobster', cursive;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    {% if christmas %}
+    <h1>Yes</h1>
+    {% else %}
+    <h1>No</h1>
+    {% endif %}
+  </div>
+</body>
+
+</html>

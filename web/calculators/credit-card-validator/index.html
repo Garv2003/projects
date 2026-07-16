@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Credit Card Validator
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+</head>
+
+<body>
+    <div class="flex items-center justify-center h-screen bg-gray-100">
+        <div class="bg-white p-8 rounded shadow-lg w-96" x-data="{
+            cardNumber: '',
+            cardType: '',
+            cardNumberValid: false,
+            cardTypeValid: false,
+            cardTypes: {
+                visa: /^4[0-9]{12}(?:[0-9]{3})?$/,
+                mastercard: /^5[1-5][0-9]{14}$/,
+                amex: /^3[47][0-9]{13}$/,
+                discover: /^6(?:011|5[0-9]{2})[0-9]{12}$/
+            },
+            validateCardNumber() {
+                this.cardNumberValid = this.cardTypes[this.cardType].test(this.cardNumber);
+            },
+            validateCardType() {
+                this.cardTypeValid = this.cardType in this.cardTypes;
+            }
+        }">
+            <h1 class="text-2xl font-bold mb-4">Credit Card Validator</h1>
+            <div class="mb-4">
+                <label for="cardNumber" class="block text-sm font-medium text-gray-700">Card Number</label>
+                <input type="text" id="cardNumber" x-model="cardNumber" x-on:input="validateCardNumber()"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            </div>
+            <div class="mb-4">
+                <label for="cardType" class="block text-sm font-medium text-gray-700">Card Type</label>
+                <select id="cardType" x-model="cardType" x-on:change="validateCardType()"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="">Select a card type</option>
+                    <option value="visa">Visa</option>
+                    <option value="mastercard">Mastercard</option>
+                    <option value="amex">American Express</option>
+                    <option value="discover">Discover</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <button type="button" x-show="cardNumberValid && cardTypeValid"
+                    class="w-full bg-indigo-500 text-white py-2 rounded">Validate</button>
+            </div>
+            <div x-show="cardNumberValid && cardTypeValid" class="bg-green-100 text-green-800 p-4 rounded">
+                <p class="font-bold">Card is valid!</p>
+            </div>
+            <div x-show="!cardNumberValid && cardTypeValid" class="bg-red-100 text-red-800 p-4 rounded">
+                <p class="font-bold">Card is invalid!</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

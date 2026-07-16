@@ -1,0 +1,64 @@
+.TeamCardContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-bottom: 20px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.TeamHead{
+    font-size: 3.5rem;
+    position: relative;
+    padding: 0 8rem;
+}
+.TeamSubHead{
+    font-size: 1.2rem;
+    position: relative;
+    padding: 0 8rem;
+    color: #888;
+}
+.TeamSubHead2{
+    font-size: 1.8rem;
+    position: relative;
+    padding: 0.1rem 8rem;
+    text-shadow: 0 0 10px #03c6dc, 0 0 20px #03c6dc;
+    margin-left: 0.5rem;
+}
+.teamSection{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.TeamSechead{
+    font-size: 4rem;
+    position: relative;
+    padding: 0 8rem;
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .TeamHead{
+        font-size: 2.5rem;
+        padding: 0 2rem;
+    }
+    .TeamSubHead{
+        font-size: 1rem;
+        padding: 0 2rem;
+    }
+    .teamSection{
+        padding: 0 2rem;
+    }
+    .TeamSechead{
+        font-size: 3rem;
+        padding: 0 2rem;
+    }
+    
+}

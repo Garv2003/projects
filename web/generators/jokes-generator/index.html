@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2"></script>
+</head>
+
+<body>
+    <div x-data="{
+    joke: '',
+    loading: false,
+    error: null,
+    getJokes() {
+        this.loading = true;
+        this.error = null;
+        this.loading = true;
+        fetch('https://official-joke-api.appspot.com/random_joke')
+            .then(data => data.json())
+            .then(joke => {
+                this.joke = joke.setup + ' ' + joke.punchline;
+                this.loading = false;
+            })
+            .catch(error => {
+                this.error = error;
+                this.loading = false;
+            });
+    }
+}">
+        <div class="flex justify-center items-center h-screen text-center">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h1 class="text-2xl font-bold mb-4">Joke Generator</h1>
+                <p x-text="joke"></p>
+                <button @click="getJokes()" :disabled="loading"
+                    class=" bg-blue-500 text-white px-4 py-2 mt-4 rounded-lg">Get Joke</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

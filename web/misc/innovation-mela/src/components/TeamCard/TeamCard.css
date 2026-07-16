@@ -1,0 +1,111 @@
+.teamCard {
+    width: 300px;
+    height: max-content;
+    background-color: #0000001e;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: boxshadow 3s infinite;
+}
+
+.teamCard:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px 0px #025a75;
+}
+
+@keyframes boxshadow {
+    /* add revolving shadow around the box */
+    0% {
+        box-shadow: 0px 0px 20px 0px #025a75;
+    }
+    50% {
+        box-shadow: 0px 0px 20px 0px #0056b3;
+    }
+    100% {
+        box-shadow: 0px 0px 20px 0px #025a75;
+    }    
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid #ffffff87;
+    object-fit: cover;
+    background-color: rgb(255,255,255, 0.3);
+    padding: 3px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    position: relative;
+    margin-top: 40px;
+    padding: 0 10px;
+}
+
+.job-title {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.aboutPerson {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.conatctBtn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.conatctBtn:hover {
+    background-color: #025a75;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    margin: 0 5px;
+    color: #007bff;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #0056b3;
+}
+

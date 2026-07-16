@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
+    <title>Subscribe to our newsletter</title>
+</head>
+
+<body class="min-h-screen relative isolate overflow-hidden flex justify-center items-center bg-gray-900">
+    <div class="w-full">
+        <div class="px-6 py-24 rounded-2xl sm:rounded-3xl sm:px-24 xl:py-32">
+
+            <h2 class="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Subscribe to our newsletter
+            </h2>
+
+            <p class="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
+                Get the latest news and updates from us delivered straight to your inbox.
+            </p>
+
+            <form class="mx-auto mt-10 flex max-w-md gap-x-4" action="/subscribe" method="post">
+
+                <label for="email-address" class="sr-only">Email address</label>
+                <input id="email-address" name="email" type="email" autocomplete="email" required
+                    class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+                    placeholder="Enter your email">
+
+                <button type="submit"
+                    class="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </div>
+    <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 h-full w-full -translate-x-1/2"
+        aria-hidden="true">
+        <circle cx="512" cy="512" r="1024" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7">
+        </circle>
+        <defs>
+            <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                gradientTransform="translate(512 512) rotate(90) scale(512)">
+                <stop stop-color="#7775D6"></stop>
+                <stop offset="1" stop-color="#7ED321" stop-opacity="0"></stop>
+            </radialGradient>
+        </defs>
+    </svg>
+</body>
+
+</html>

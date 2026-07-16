@@ -1,0 +1,40 @@
+.qr-code {
+  width: 30%;
+  margin: auto;
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.qr_code,
+.shorturl {
+  height: 60px;
+  width: 40%;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.slider {
+  height: 60px;
+  width: 40%;
+  border-radius: 50px;
+  background-color: #0d6efd;
+  transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .qr-code {
+    width: 50%;
+  }
+  .qr_code,
+  .shorturl {
+    font-size: 1rem;
+  }
+  .small-btn{
+    font-size: 0.4rem;
+  }
+}

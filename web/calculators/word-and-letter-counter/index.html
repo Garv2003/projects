@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Word and Letter Counter
+    </title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div x-data="{ text: '', words: 0, letters: 0 }" class="flex flex-col items-center justify-center h-screen">
+        <h1 class="text-4xl text-center font-bold m-4 mb-8">Word and Letter Counter</h1>
+        <textarea x-model="text"
+            x-on:input="words = text.split(' ').filter(Boolean).length; letters = text.replace(/\s/g, '').length"
+            placeholder="Type something here" class="border-2 border-gray-300 p-2 rounded-lg m-2 w-96 h-48"></textarea>
+        <div x-show="text" class="m-2 flex gap-10" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0">
+            <p>
+                Words: <span x-text="words"></span>
+            </p>
+            <p>
+                Letters: <span x-text="letters"></span>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

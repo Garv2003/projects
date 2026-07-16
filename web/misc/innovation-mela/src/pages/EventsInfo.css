@@ -1,0 +1,112 @@
+.event_info {
+  padding: 0;
+  margin: 0;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 2rem;
+  font-family: inherit;
+  height: max-content;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+sup{
+  font-size: 0.75rem;
+  color: #fff;
+  margin-left: 0.5rem;
+}
+
+.event_info h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  /* font-weight: 700; */
+}
+
+.event_info img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  margin-bottom: 2rem;
+}
+
+.event_info p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.event_info .desc{
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.event_info h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fff;
+  /* text-align: center; */
+  width: 100%;
+}
+
+.event_info span {
+  font-size: 1.6rem;
+  color: #aaa;
+  margin-left: 0.5rem;
+}
+
+.event_info h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: white;
+  background-color: #03c6dc2d;
+  text-shadow: 0 0 10px #03c6dc, 0 0 20px #03c6dc;
+  border-radius: 10px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.neon-button {
+  width: max-content;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.neon-button:hover {
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+  .event_info {
+    width: 100%;
+    padding: 0 20px;
+
+  }
+
+  .event_info img {
+    height: 300px;
+  }
+
+  .neon-button {
+    font-size: 1.2rem;
+  }
+
+  .event_info h1 {
+    font-size: 3rem;
+  }
+
+  .event_info h2 {
+    font-size: 1.8rem;
+  }
+
+  .event_info p {
+    font-size: 1.2rem;
+  }
+
+}

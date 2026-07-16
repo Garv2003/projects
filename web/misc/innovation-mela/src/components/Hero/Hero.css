@@ -1,0 +1,67 @@
+.hero{
+    height: max-content;
+    background-position: center;
+    background-size: cover;
+    padding: 2rem 8rem 8rem;
+}
+.hero h1{
+    font-size: 5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+.hero p{
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    width: 60%;
+    text-align: justify;
+    padding: 0 1rem;
+}
+.downloadBtn{
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+    border-radius: 10px;
+}
+.downloadBtn:hover{
+    box-shadow: 0 0 10px #fff;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .hero{
+        padding: 2rem 2rem 8rem;
+    }
+    .hero h1{
+        font-size: 3rem;
+    }
+    .hero p{
+        font-size: 1.2rem;
+        width: 100%;
+    }
+    .downloadBtn{
+        margin: 1rem 0;
+    }
+    
+}
+
+@media (max-width: 425px) {
+    .hero h1{
+        font-size: 2rem;
+    }
+    .hero p{
+        font-size: 1rem;
+    }
+    .downloadBtn{
+        padding: 0.5rem 0.8rem;
+        font-size: 1rem;
+    }
+}

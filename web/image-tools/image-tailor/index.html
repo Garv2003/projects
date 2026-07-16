@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Tailor</title>
+  <link href="/node_modules/cropperjs/dist/cropper.min.css" rel="stylesheet">
+  <script src="/node_modules/cropperjs/dist/cropper.min.js"></script>
+</head>
+
+<body x-data="{
+  image: '',
+  croppedImage: '',
+  cropper: null,
+  darkMode: false,
+  aspectRatio: 1,
+  width: 800,
+  height: 800,
+  x: 0,
+  y: 0,
+  updateCropper: function() {
+    if (this.cropper) {
+        this.cropper.setCropBoxData({
+            left: this.x,
+            top: this.y,
+            width: this.width,
+            height: this.height
+        });
+        this.cropper.setAspectRatio(this.aspectRatio);
+    }
+  },
+  rotate: function(degree) {
+    if (this.cropper) {
+        this.cropper.rotate(degree);
+    }
+  },
+  onFileChange(e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.image = e.target.result;
+        this.$nextTick(() => {
+          if (this.cropper) {
+            this.cropper.destroy();
+          }
+          this.cropper = new Cropper(this.$refs.image, {
+            aspectRatio: this.aspectRatio,
+            viewMode: 1,
+            crop(event) {
+              this.x = event.detail.x;
+              this.y = event.detail.y;
+              this.width = event.detail.width;
+              this.height = event.detail.height;
+            }
+          });
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  },
+  crop() {
+    if (this.cropper) {
+      this.croppedImage = this.cropper.getCroppedCanvas().toDataURL();
+    }
+  },
+  reset() {
+    if (this.cropper) {
+      this.cropper.reset();
+    }
+  },
+  flipHorizontal: function() {
+    if (this.cropper) {
+        this.cropper.scaleX(-this.cropper.getData().scaleX);
+    }
+},
+flipVertical: function() {
+    if (this.cropper) {
+        this.cropper.scaleY(-this.cropper.getData().scaleY);
+    }
+},
+  toggleTheme() {
+    this.darkMode = !this.darkMode;
+    document.documentElement.classList.toggle('dark', this.darkMode);
+    localStorage.setItem('darkMode', this.darkMode);
+  },
+  download() {
+    if (this.croppedImage) {
+      const a = document.createElement('a'); a.href=this.croppedImage; a.download='cropped-image.png' ; a.click(); } }
+  }" x-init="()=>
+  {
+    if (localStorage.getItem('darkMode')) {
+      this.darkMode = JSON.parse(localStorage.getItem('darkMode'));
+      document.documentElement.classList.toggle('dark', this.darkMode);
+    }
+    if(!localStorage.getItem('darkMode')) {
+      this.darkMode = JSON.parse(localStorage.getItem('darkMode'));
+      document.documentElement.classList.toggle('dark', this.darkMode);
+    }
+  }" class="bg-gray-100 dark:bg-gray-800 dark:text-white" :class="{ 'dark': darkMode }">
+  <!-- navbar start -->
+  <div class="flex items-center justify-between p-4 shadow-md border-b-2 border-gray-100 ">
+    <span class="text-xl font-bold cursor-pointer">Image Tailor</span>
+    <button @click="toggleTheme"
+      class="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-600 dark:bg-gray-700 dark:hover:bg-gray-600">Theme</button>
+  </div>
+  <!-- navbar end -->
+  <div class="flex flex-col items-center justify-center w-full gap-10
+  " x-show="!image">
+    <h1 class="text-3xl font-bold mt-10">
+      Crop Image Online
+    </h1>
+    <span class="text-lg text-center">
+      Easily resize images online for free.
+    </span>
+    <div class="flex items-center justify-center w-[600px] h-full mx-auto max-w-full">
+      <label for="dropzone-file"
+        class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer dark:border-gray-700 bg-gray-100 dark:bg-gray-800">
+        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+          <svg class="w-8 h-8 mb-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 20 16">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+          </svg>
+          <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or
+            drag and drop</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+        </div>
+        <input id="dropzone-file" @change="onFileChange" type="file" class="hidden" />
+      </label>
+    </div>
+    <div class="flex flex-col items-center justify-center w-full text-center">
+      <h3 class="text-lg font-semibold  mb-2">How To Crop an Image?</h3>
+      <ul class="mt-2 text-sm  flex flex-col gap-2">
+        <li class="font-bold">1. Click on the "Select Image" button to load your image.
+        </li>
+        <li class="font-bold">2. Draw a crop rectangle on the image.</li>
+        <li class="font-bold">3. Click the "Crop Image" button to crop your image.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div x-show="image && !croppedImage"
+    class="p-6 w-screen mx-auto bg-white rounded-xl shadow-md dark:bg-gray-800 flex gap-5">
+    <div class="flex flex-col items-center justify-center space-y-4 w-[30%]">
+      <!-- <span>
+        Crop Rectangle
+      </span>
+      <div class="flex items-center justify-center gap-2 w-full">
+        <div>
+          <span>Width</span>
+          <input type="number" class="w-full placeholder:gray-400" x-model="width" @change="updateCropper" />
+        </div>
+        <div>
+          <span>Height</span>
+          <input type="number" class="w-full" x-model="height" @change="updateCropper" />
+        </div>
+      </div>
+      <div class="flex flex-col items-center space-y-4 w-full">
+        <span>Aspect Ratio</span>
+        <input type="range" min="0" max="1" step="0.01" class="w-full" x-model="aspectRatio" @change="updateCropper" />
+      </div>
+
+      <span>
+        Crop Position
+      </span>
+
+      <div class="flex items-center justify-center gap-2 w-full">
+        <div>
+          <span>Position (X)</span>
+          <input type="number" class="w-full" x-model="x" @change="updateCropper" />
+        </div>
+        <div>
+          <span>Position (Y)</span>
+          <input type="number" class="w-full" x-model="y" @change="updateCropper" />
+        </div>
+      </div> -->
+
+      <div class="flex items-center space-x-4 w-full flex-col">
+        <span class="text-lg font-bold">
+          Flip Image
+        </span>
+        <div class="flex items-center space-x-4 w-full mt-2">
+          <button @click="flipHorizontal"
+            class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 w-full">Flip Horizontal</button>
+          <button @click="flipVertical"
+            class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 w-full">Flip Vertical</button>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center gap-2 w-full flex-col">
+        <span class="text-lg font-bold">
+          Rotate Image
+        </span>
+        <div class="flex items-center space-x-4 w-full">
+          <button @click="rotate(-90)"
+            class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 w-full">
+            Anti-Clockwise
+          </button>
+          <button @click="rotate(90)"
+            class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 w-full">
+            Clockwise
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-4 w-full">
+        <button @click="crop"
+          class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 w-full">Crop</button>
+        <button @click="reset"
+          class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700 ml-2 w-full">Reset</button>
+      </div>
+    </div>
+    <div class="flex flex-col items-center space-y-4 w-[70%]">
+      <img :src="image" x-ref="image" class="object-fill h-[80vh] w-[80vh]" />
+    </div>
+  </div>
+
+  <div x-show="croppedImage"
+    class="p-6 w-screen h-[80vh] mx-auto bg-white dark:bg-gray-800 flex flex-col gap-5 items-center justify-center">
+    <div class="flex flex-col items-center space-y-4">
+      <img :src="croppedImage" class="object-fill h-full w-[400px] aspect-auto" />
+    </div>
+    <div class="flex flex-col items-center space-y-4">
+      <div class="flex items-center space-x-4">
+        <button @click="download"
+          class="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">Download</button>
+        <button @click="croppedImage = '' ; image = ''"
+          class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>

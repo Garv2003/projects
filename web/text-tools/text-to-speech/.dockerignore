@@ -1,0 +1,38 @@
+# Ignore Python cache and virtual environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+
+# Ignore logs
+*.log
+
+# Ignore Docker-related files not needed inside the container
+Dockerfile
+.dockerignore
+
+# Ignore Git and version control
+.git/
+.gitignore
+
+# Ignore local environment files
+.env
+.env.*
+
+# Ignore node_modules (if frontend assets are managed separately)
+node_modules/
+
+# Ignore static files that are not required (e.g., audio cache)
+static/audio/
+
+# Ignore IDE/project settings
+*.vscode/
+.idea/
+
+# Ignore temporary files and OS-specific junk
+*.swp
+*~
+.DS_Store
+Thumbs.db

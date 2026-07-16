@@ -1,0 +1,57 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+env/
+venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs and debug output
+*.log
+*.out
+*.err
+
+# Local development files
+instance/
+*.sqlite3
+*.db
+
+# Flask cache files
+.cache/
+
+# Environment variables
+.env
+.env.*
+
+# Docker-related files
+docker-compose.override.yml
+
+# Node modules (if frontend dependencies exist)
+node_modules/
+
+# Static generated files (optional, if audio files are cached)
+static/audio/
+
+# IDE / editor configurations
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Python-specific tools
+coverage/
+*.cover
+*.py,cover
+htmlcov/
+
+# PyTest cache
+.pytest_cache/

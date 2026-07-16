@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Currency Converter
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+</head>
+
+<body>
+    <div class="flex items-center justify-center h-screen bg-gray-100">
+        <div class="bg-white p-8 rounded shadow-lg w-96" x-data="{
+            amount: 0,
+            fromCurrency: 'USD',
+            toCurrency: 'EUR',
+            exchangeRate: 0,
+            currencies: [],
+            async fetchCurrencies() {
+                const response = await fetch('https://api.exchangerate-api.com/v4/latest/' + this.fromCurrency);
+                const data = await response.json();
+                this.currencies = Object.keys(data.rates);
+                this.exchangeRate = data.rates[this.toCurrency];
+            }
+        }" x-init="fetchCurrencies">
+            <h1 class="text-2xl font-bold mb-4">Currency Converter</h1>
+            <div class="mb-4">
+                <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
+                <input type="number" id="amount" x-model="amount"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            </div>
+            <div class="mb-4">
+                <label for="fromCurrency" class="block text-sm font-medium text-gray-700">From Currency</label>
+                <select id="fromCurrency" x-model="fromCurrency" x-on:change="fetchCurrencies()"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <template x-for="currency in currencies" :key="currency">
+                        <option x-text="currency" x-bind:value="currency"></option>
+                    </template>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="toCurrency" class="block text-sm font-medium text-gray-700">To Currency</label>
+                <select id="toCurrency" x-model="toCurrency" x-on:change="fetchCurrencies()" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500
+                    focus:border-indigo-500 sm:text-sm">
+                    <template x-for="currency in currencies" :key="currency">
+                        <option x-text="currency" x-bind:value="currency"></option>
+                    </template>
+                </select>
+            </div>
+            <div class="mb-4">
+                <button type="button" x-show="exchangeRate"
+                    x-text="'Convert ' + amount + ' ' + fromCurrency + ' to ' + toCurrency + ' = ' + (amount * exchangeRate).toFixed(2)"
+                    class="w-full bg-indigo-500 text-white py-2 rounded"></button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
