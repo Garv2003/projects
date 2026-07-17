@@ -5,8 +5,9 @@ A consolidated archive of my applications and small web projects.
 - **`apps/`** — full-stack / multi-screen applications (web & mobile).
 - **`web/`** — small single-purpose web utilities, grouped by category.
 
-> Standalone flagship apps I'm actively developing live in their own repos: **vidbite**
-> (AI video summarizer), **livepolls** (real-time polling), **convo** (real-time chat).
+> Apps I'm actively developing live in their own repos: **vidbite** (AI video summarizer),
+> **livepolls** (real-time polling), **convo** (real-time chat), **medease** (healthcare + AI),
+> **silhouette** (photo background remover), **textmeld** (markdown editor).
 
 ## Apps (`apps/`)
 
@@ -22,19 +23,16 @@ A consolidated archive of my applications and small web projects.
 | [`insignia`](./apps/insignia) | Logo / icon maker studio (color, size, gradient) |
 | [`interview-scheduler`](./apps/interview-scheduler) | Schedule / edit interviews on a calendar, per-user accounts |
 | [`job`](./apps/job) | Mobile job-search app (browse, search, job details) |
-| [`medease`](./apps/medease) | Healthcare booking + AI prescription reader |
 | [`newswave`](./apps/newswave) | News reader (NewsAPI) — categories, bookmarks |
 | [`noteit`](./apps/noteit) | Minimal notes app — create / view / delete |
 | [`pdfwhisper`](./apps/pdfwhisper) | Chat-with-your-PDF (RAG over uploaded PDFs) |
 | [`pensieve-a-notes`](./apps/pensieve-a-notes) | Markdown notes with tagging |
 | [`placepin`](./apps/placepin) | Nearby-places discovery on Google Maps |
-| [`silhouette`](./apps/silhouette) | Photo background remover with a Skia cutout editor (React Native) |
 | [`solace`](./apps/solace) | Movie / TV browsing app |
 | [`speedsearch`](./apps/speedsearch) | Fast prefix-autocomplete search demo |
 | [`task-manager`](./apps/task-manager) | To-do / task manager (WIP) |
 | [`tastytrails`](./apps/tastytrails) | Recipe finder — browse, search, recipe details |
 | [`testorix`](./apps/testorix) | Postman-like HTTP API testing tool |
-| [`textmeld`](./apps/textmeld) | Markdown editor — auth, CRUD, live preview |
 | [`tier-list`](./apps/tier-list) | Drag-and-drop tier-list builder |
 | [`aora`](./apps/aora) | React Native starter for a video-social app (scaffold) |
 
