@@ -23,6 +23,7 @@ A consolidated archive of my applications and small web projects.
 | [`insignia`](./apps/insignia) | Logo / icon maker studio (color, size, gradient) |
 | [`interview-scheduler`](./apps/interview-scheduler) | Schedule / edit interviews on a calendar, per-user accounts |
 | [`job`](./apps/job) | Mobile job-search app (browse, search, job details) |
+| [`meme-generator`](./apps/meme-generator) | Meme template search + text-overlay editor with favourites (Next.js, Drizzle, ImageKit) |
 | [`newswave`](./apps/newswave) | News reader (NewsAPI) — categories, bookmarks |
 | [`noteit`](./apps/noteit) | Minimal notes app — create / view / delete |
 | [`pdfwhisper`](./apps/pdfwhisper) | Chat-with-your-PDF (RAG over uploaded PDFs) |
